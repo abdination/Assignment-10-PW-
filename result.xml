@@ -1,0 +1,25 @@
+<testsuites>
+<testsuite name="pytest" errors="3" failures="4" skipped="0" tests="4" time="0.065" timestamp="2025-01-22T20:04:43.015099+00:00" hostname="ff7e79507bc3">
+<testcase classname="test_Todo.TestTodoApp" name="test_add_task" time="0.001">
+<failure message="NameError: name 'os' is not defined">self = <test_Todo.TestTodoApp testMethod=test_add_task> def tearDown(self): """Clean up after each test.""" > if os.path.exists('test_tasks.json'): E NameError: name 'os' is not defined test_Todo.py:37: NameError</failure>
+</testcase>
+<testcase classname="test_Todo.TestTodoApp" name="test_display_tasks" time="0.002">
+<failure message="AssertionError: no logs of level INFO or higher triggered on root">self = <test_Todo.TestTodoApp testMethod=test_display_tasks> def test_display_tasks(self): """Test displaying tasks.""" self.todo.add_task("Finish homework") self.todo.add_task("Clean room") > with self.assertLogs(self.todo.display_tasks(), level="INFO"): test_Todo.py:32: _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ /usr/lib/python3.11/unittest/_log.py:84: in __exit__ self._raiseFailure( E AssertionError: no logs of level INFO or higher triggered on root</failure>
+</testcase>
+<testcase classname="test_Todo.TestTodoApp" name="test_display_tasks" time="0.000">
+<error message="failed on teardown with "NameError: name 'os' is not defined"">self = <test_Todo.TestTodoApp testMethod=test_display_tasks> def tearDown(self): """Clean up after each test.""" > if os.path.exists('test_tasks.json'): E NameError: name 'os' is not defined test_Todo.py:37: NameError</error>
+</testcase>
+<testcase classname="test_Todo.TestTodoApp" name="test_remove_task" time="0.001">
+<failure message="AssertionError: 'Finish homework' unexpectedly found in ['Finish homework', 'Clean room', 'Finish homework']">self = <test_Todo.TestTodoApp testMethod=test_remove_task> def test_remove_task(self): """Test removing a task.""" self.todo.add_task("Finish homework") self.todo.remove_task("Finish homework") > self.assertNotIn("Finish homework", self.todo.tasks) E AssertionError: 'Finish homework' unexpectedly found in ['Finish homework', 'Clean room', 'Finish homework'] test_Todo.py:19: AssertionError</failure>
+</testcase>
+<testcase classname="test_Todo.TestTodoApp" name="test_remove_task" time="0.000">
+<error message="failed on teardown with "NameError: name 'os' is not defined"">self = <test_Todo.TestTodoApp testMethod=test_remove_task> def tearDown(self): """Clean up after each test.""" > if os.path.exists('test_tasks.json'): E NameError: name 'os' is not defined test_Todo.py:37: NameError</error>
+</testcase>
+<testcase classname="test_Todo.TestTodoApp" name="test_update_task" time="0.001">
+<failure message="AssertionError: 'Finish homework' unexpectedly found in ['Complete homework', 'Clean room', 'Finish homework', 'Finish homework']">self = <test_Todo.TestTodoApp testMethod=test_update_task> def test_update_task(self): """Test updating a task.""" self.todo.add_task("Finish homework") self.todo.update_task("Finish homework", "Complete homework") self.assertIn("Complete homework", self.todo.tasks) > self.assertNotIn("Finish homework", self.todo.tasks) E AssertionError: 'Finish homework' unexpectedly found in ['Complete homework', 'Clean room', 'Finish homework', 'Finish homework'] test_Todo.py:26: AssertionError</failure>
+</testcase>
+<testcase classname="test_Todo.TestTodoApp" name="test_update_task" time="0.000">
+<error message="failed on teardown with "NameError: name 'os' is not defined"">self = <test_Todo.TestTodoApp testMethod=test_update_task> def tearDown(self): """Clean up after each test.""" > if os.path.exists('test_tasks.json'): E NameError: name 'os' is not defined test_Todo.py:37: NameError</error>
+</testcase>
+</testsuite>
+</testsuites>
